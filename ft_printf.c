@@ -6,7 +6,7 @@
 /*   By: aperis-p <aperis-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 23:14:34 by aperis-p          #+#    #+#             */
-/*   Updated: 2023/06/25 21:49:10 by aperis-p         ###   ########.fr       */
+/*   Updated: 2023/06/25 22:16:11 by aperis-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,24 @@ int ft_putstr(char *str)
 	return (count);
 }
 
+int	ft_putnbr_base(int n, int base)
+{
+	int	nmbr;
+	int counter;
+
+	counter = 0;
+	if (n < 0)
+	{
+		counter += ft_putchar('-');
+		nmbr = n * -1;
+	}
+	else
+		nmbr = n;
+	if (nmbr >= base)
+		counter = ft_putnbr_base(nmbr / base, base);
+	return (counter + ft_putchar((nmbr % base) + '0'));
+}
+
 int ft_printf(const char *info, ...)
 {
 	va_list ap;
@@ -54,8 +72,8 @@ int ft_printf(const char *info, ...)
 				count += ft_putstr(va_arg(ap, char *));
 			else if(*(info + 1) == 'p')
 				count += hash_printer(va_arg(ap, unsigned long), 16); // unsigned long max (0xffffffffffffffff)
-			// else if(*(info + 1) == 'd')				
-			// 	count += ft_itoa(va_arg(ap, int), 10);
+			else if(*(info + 1) == 'd')				
+				count += ft_putnbr_base(va_arg(ap, int), 10);
 			else if (*(info + 1) == 'u')
 				count += ft_itoa(va_arg(ap, unsigned int), 10, 0);
 			else if (*(info + 1) == 'x')
@@ -81,8 +99,8 @@ int main (void)
 	// printf("%d", ft_printf("teste %s testxxx %c qwerty", "qwertyu", 'a'));
 	// printf("%i\n", &count);
 	// ft_printf("%i\n", &count);
-	printf("Number returned from printf: %d\n", printf("%u\n", count));
-	printf("Number returned from ft_printf: %d\n", ft_printf("%u\n", count));
+	printf("Number returned from printf: %d\n", printf("%d\n", count));
+	printf("Number returned from ft_printf: %d\n", ft_printf("%d\n", count));
 	// printf("\n%d\n", printf("teste%% %s testxxx %c qwerty", "qwertyu", 'a'));
 	// printf("%d signs", count);
 	return(0);
