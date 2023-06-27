@@ -3,7 +3,10 @@ AR = ar rcs
 RL = ranlib
 CC = cc
 FLAGS = -Wall -Werror -Wextra
-SRC = ft_printf.c ft_itoa.c ft_strlcpy.c ft_strlen.c\
+SRC = ft_printf.c ft_itoa.c\
+
+all: $(NAME)
+	# $(CC) $(SRC) $(FLAGS) -g3 && ./a.out 
 
 OBJS = $(SRC:.c=.o)
 
@@ -13,9 +16,6 @@ OBJS = $(SRC:.c=.o)
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 	$(RL) $(NAME)
-
-all: $(NAME)
-	$(CC) $(SRC) $(FLAGS) -g3 && ./a.out 
 clean:
 	rm -f $(OBJS)
 

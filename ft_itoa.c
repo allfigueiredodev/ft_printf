@@ -6,7 +6,7 @@
 /*   By: aperis-p <aperis-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:58:48 by aperis-p          #+#    #+#             */
-/*   Updated: 2023/06/25 21:31:14 by aperis-p         ###   ########.fr       */
+/*   Updated: 2023/06/27 15:54:20 by aperis-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,24 @@ int	ft_itoa(unsigned long n, int base, int caps)
 	else
 		hexa_chrs = "0123456789abcdef";
 	if (n < (unsigned long)base)
-		return ft_putchar(hexa_chrs[n]);
+		return (ft_putchar(hexa_chrs[n]));
 	else
 	{
 		count = ft_itoa(n / base, base, caps);
-		return count + ft_itoa(n % base, base, caps);
+		return (count + ft_itoa(n % base, base, caps));
 	}
 }
 
-int hash_printer (unsigned long n, int base)
+int	hash_printer(unsigned long n, int base)
 {
+	if (!n)
+	{
+		write(1, "(nil)", 5);
+		return (5);
+	}
 	if (base == 16)
 		ft_putstr("0x");
 	else if (base == 8)
 		ft_putstr("0");
-	return ft_itoa(n, base, 0) + 2;
+	return (ft_itoa(n, base, 0) + 2);
 }
-

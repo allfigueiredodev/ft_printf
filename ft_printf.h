@@ -6,7 +6,7 @@
 /*   By: aperis-p <aperis-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 23:25:29 by aperis-p          #+#    #+#             */
-/*   Updated: 2023/06/25 21:11:52 by aperis-p         ###   ########.fr       */
+/*   Updated: 2023/06/27 17:29:06 by aperis-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,9 @@
 # include <stdio.h>
 
 int	ft_itoa(unsigned long n, int base, int caps);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-size_t	ft_strlen(const char *s);
-int ft_putstr(char *str);
-int ft_putchar(char c);
-int hash_printer (unsigned long n, int base);
-// static char	*ft_hard_return(int n);
-// static int	n_counter(int n);
-// static int	ft_is_negative(int n);
+int	ft_putstr(char *str);
+int	ft_putchar(char c);
+int	hash_printer(unsigned long n, int base);
+int	ft_printf(const char *info, ...);
 
 #endif
