@@ -3,7 +3,7 @@ AR = ar rcs
 RL = ranlib
 CC = cc
 FLAGS = -Wall -Werror -Wextra
-SRC = ft_printf.c ft_itoa.c\
+SRC = ft_printf.c ft_printf_utils.c\
 
 all: $(NAME)
 	# $(CC) $(SRC) $(FLAGS) -g3 && ./a.out 

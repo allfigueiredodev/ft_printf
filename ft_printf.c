@@ -6,7 +6,7 @@
 /*   By: aperis-p <aperis-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 23:14:34 by aperis-p          #+#    #+#             */
-/*   Updated: 2023/06/27 18:29:18 by aperis-p         ###   ########.fr       */
+/*   Updated: 2023/06/28 17:38:12 by aperis-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ int	ft_printf(const char *info, ...)
 	int		count;
 
 	count = 0;
+	if (info == 0)
+		return (-1);
 	va_start(ap, info);
 	while (*info)
 	{
@@ -101,15 +103,8 @@ int	ft_printf(const char *info, ...)
 
 // int main (void)
 // {
-// 	// int count = 0;
-
-// 	// count = ft_printf("%c %d %d", 'a', 10, 15);
-// 	// printf("%d", ft_printf("teste %s testxxx %c qwerty", "qwertyu", 'a'));
-// 	// printf("%i\n", &count);
-// 	// ft_printf("%i\n", &count);
-// 	printf("Number returned from printf: %d\n", printf(" %% %%  %c", 'a'));
-// 	printf("Number returned from ft_printf: %d\n", ft_printf(" %% %%  %c", 'a'));
-// 	// printf("\n%d\n", printf("teste%% %s testxxx %c qwerty", "qwertyu", 'a'));
-// 	// printf("%d signs", count);
-// 	return(0);
+// 	printf("Number returned from printf: %i\n", printf("%d\n", 010));
+// 	printf("Number returned from printf: %d\n", printf("%d\n", 010));
+// 	// printf("Number returned from ft_printf: %d\n", ft_printf("%d\n", 010));
+// 	return (0);
 // }
